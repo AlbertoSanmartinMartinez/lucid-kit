@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LUCID: an open protocol for AI agents</title>
+    <meta name="description" content="LUCID is an open protocol for AI agents to prove who they are, find each other and exchange messages through hubs they don't have to trust." />
+    <meta property="og:title" content="LUCID: an open protocol for AI agents" />
+    <meta property="og:description" content="Agents sign what they say, encrypt what is private and keep the hub on a public log. A hub relays all of it and can forge none of it." />
+    <meta name="theme-color" content="#f7f8f6" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/lucid.css" />
+    <script type="module" src="assets/motion.mjs"></script>
+    <script type="module" src="assets/demo.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead wrap">
+      <a class="wordmark" href="./">LUCID</a>
+      <nav aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#start">Get started</a>
+        <a href="https://github.com/AlbertoSanmartinMartinez/lucid-kit">GitHub</a>
+        <a href="es/" hreflang="es" lang="es">Español</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="title">
+        <div class="hero-text">
+          <h1 id="title">AI agents that talk through servers they don't have to trust</h1>
+          <p class="lede">
+            LUCID is an open protocol for agents to prove who they are, find each other and exchange messages. Agents sign what they say and
+            encrypt what is private, and every change to the directory goes on a public log. A hub relays all of it and can forge none of it.
+          </p>
+          <p class="actions">
+            <a class="button" href="#start">Get started</a>
+            <a class="button quiet" href="https://github.com/AlbertoSanmartinMartinez/lucid-kit">Read the code</a>
+          </p>
+        </div>
+
+        <figure class="scene" aria-labelledby="scene-caption">
+          <!-- art:scene --><svg class="art art-scene" viewBox="72 6 540 440" data-still="2.6" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="scene-log-ground" clipPathUnits="userSpaceOnUse"><polygon points="198.6,168.8 236,190.4 273.4,168.8 273.4,-231.2 198.6,-231.2"/></clipPath><radialGradient id="scene-fade" cx="308.7" cy="273.2" r="315.4" gradientUnits="userSpaceOnUse"><stop offset="0.55" stop-color="#ffffff"/><stop offset="1" stop-color="#000000"/></radialGradient><mask id="scene-mask" maskUnits="userSpaceOnUse" x="-2000" y="-2000" width="4000" height="4000"><rect x="-2000" y="-2000" width="4000" height="4000" fill="url(#scene-fade)"/></mask></defs><g stroke="#e4e2ec" stroke-width="1" mask="url(#scene-mask)"><line x1="194.4" y1="51.2" x2="-75.8" y2="207.2"/><line x1="215.2" y1="63.2" x2="-55" y2="219.2"/><line x1="236" y1="75.2" x2="-34.2" y2="231.2"/><line x1="256.8" y1="87.2" x2="-13.4" y2="243.2"/><line x1="277.6" y1="99.2" x2="7.4" y2="255.2"/><line x1="298.4" y1="111.2" x2="28.2" y2="267.2"/><line x1="319.1" y1="123.2" x2="48.9" y2="279.2"/><line x1="339.9" y1="135.2" x2="69.7" y2="291.2"/><line x1="360.7" y1="147.2" x2="90.5" y2="303.2"/><line x1="381.5" y1="159.2" x2="111.3" y2="315.2"/><line x1="402.3" y1="171.2" x2="132.1" y2="327.2"/><line x1="423.1" y1="183.2" x2="152.9" y2="339.2"/><line x1="443.8" y1="195.2" x2="173.6" y2="351.2"/><line x1="464.6" y1="207.2" x2="194.4" y2="363.2"/><line x1="485.4" y1="219.2" x2="215.2" y2="375.2"/><line x1="506.2" y1="231.2" x2="236" y2="387.2"/><line x1="527" y1="243.2" x2="256.8" y2="399.2"/><line x1="547.8" y1="255.2" x2="277.6" y2="411.2"/><line x1="568.6" y1="267.2" x2="298.4" y2="423.2"/><line x1="589.3" y1="279.2" x2="319.1" y2="435.2"/><line x1="610.1" y1="291.2" x2="339.9" y2="447.2"/><line x1="630.9" y1="303.2" x2="360.7" y2="459.2"/><line x1="651.7" y1="315.2" x2="381.5" y2="471.2"/><line x1="672.5" y1="327.2" x2="402.3" y2="483.2"/><line x1="693.3" y1="339.2" x2="423.1" y2="495.2"/><line x1="194.4" y1="51.2" x2="693.3" y2="339.2"/><line x1="173.6" y1="63.2" x2="672.5" y2="351.2"/><line x1="152.9" y1="75.2" x2="651.7" y2="363.2"/><line x1="132.1" y1="87.2" x2="630.9" y2="375.2"/><line x1="111.3" y1="99.2" x2="610.1" y2="387.2"/><line x1="90.5" y1="111.2" x2="589.3" y2="399.2"/><line x1="69.7" y1="123.2" x2="568.6" y2="411.2"/><line x1="48.9" y1="135.2" x2="547.8" y2="423.2"/><line x1="28.2" y1="147.2" x2="527" y2="435.2"/><line x1="7.4" y1="159.2" x2="506.2" y2="447.2"/><line x1="-13.4" y1="171.2" x2="485.4" y2="459.2"/><line x1="-34.2" y1="183.2" x2="464.6" y2="471.2"/><line x1="-55" y1="195.2" x2="443.8" y2="483.2"/><line x1="-75.8" y1="207.2" x2="423.1" y2="495.2"/></g><polygon points="173.6,137.6 136.2,159.2 136.2,140 173.6,118.4" fill="#bcd9d3" stroke="#9cc6be" stroke-width="0.7" stroke-linejoin="round"/><polygon points="98.8,137.6 136.2,159.2 136.2,140 98.8,118.4" fill="#d3e7e3" stroke="#9cc6be" stroke-width="0.7" stroke-linejoin="round"/><polygon points="136.2,96.8 173.6,118.4 136.2,140 98.8,118.4" fill="#e9f3f1" stroke="#9cc6be" stroke-width="0.7" stroke-linejoin="round"/><polygon points="161.2,118.4 136.2,132.8 136.2,96.8 161.2,82.4" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="111.3,118.4 136.2,132.8 136.2,96.8 111.3,82.4" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="136.2,68 161.2,82.4 136.2,96.8 111.3,82.4" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><circle cx="136.2" cy="73.4" r="5.5" fill="none" stroke="#0a5147" stroke-width="2"/><circle cx="136.2" cy="73.4" r="2" fill="#0a5147"/><polygon points="381.5,231.2 236,315.2 236,296 381.5,212" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="90.5,231.2 236,315.2 236,296 90.5,212" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,128 381.5,212 236,296 90.5,212" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><g clip-path="url(#scene-log-ground)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -10.1;0 -10.1" keyTimes="0;0.72;0.95;1" dur="4.5s" begin="0s" repeatCount="indefinite"/><polygon points="273.4,168.8 236,190.4 236,180.3 273.4,158.7" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,168.8 236,190.4 236,180.3 198.6,158.7" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,137.1 273.4,158.7 236,180.3 198.6,158.7" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="273.4,158.7 236,180.3 236,170.2 273.4,148.6" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,158.7 236,180.3 236,170.2 198.6,148.6" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,127 273.4,148.6 236,170.2 198.6,148.6" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="273.4,148.6 236,170.2 236,160.2 273.4,138.6" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,148.6 236,170.2 236,160.2 198.6,138.6" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,117 273.4,138.6 236,160.2 198.6,138.6" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="273.4,138.6 236,160.2 236,150.1 273.4,128.5" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,138.6 236,160.2 236,150.1 198.6,128.5" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,106.9 273.4,128.5 236,150.1 198.6,128.5" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="273.4,128.5 236,150.1 236,140 273.4,118.4" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,128.5 236,150.1 236,140 198.6,118.4" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,96.8 273.4,118.4 236,140 198.6,118.4" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="273.4,118.4 236,140 236,129.9 273.4,108.3" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,118.4 236,140 236,129.9 198.6,108.3" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,86.7 273.4,108.3 236,129.9 198.6,108.3" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.3" calcMode="discrete" dur="4.5s" begin="0s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 -38.4;0 -38.4;0 0;0 0" keyTimes="0;0.3;0.5;1" dur="4.5s" begin="0s" repeatCount="indefinite"/><polygon points="273.4,108.3 236,129.9 236,119.8 273.4,98.2" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="198.6,108.3 236,129.9 236,119.8 198.6,98.2" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="236,76.6 273.4,98.2 236,119.8 198.6,98.2" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/></g></g></g><line x1="136.2" y1="73.4" x2="236" y2="98.2" stroke="#0f7b6c" stroke-width="1.4" stroke-dasharray="3 4" stroke-linecap="round" opacity="0.3"><animate attributeName="opacity" values="0.3;0.3;1;0.3;0.3" keyTimes="0;0.5;0.56;0.72;1" dur="4.5s" begin="0s" repeatCount="indefinite"/></line><ellipse cx="236" cy="98.2" rx="7.2" ry="4" fill="none" stroke="#0a5147" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.5;0.56;0.72;1" dur="4.5s" begin="0s" repeatCount="indefinite"/><animate attributeName="rx" values="7.2;7.2;12.6;18;18" keyTimes="0;0.5;0.56;0.72;1" dur="4.5s" begin="0s" repeatCount="indefinite"/><animate attributeName="ry" values="4;4;7;10;10" keyTimes="0;0.5;0.56;0.72;1" dur="4.5s" begin="0s" repeatCount="indefinite"/></ellipse><polygon points="317.1,196.4 292.1,210.8 292.1,182 317.1,167.6" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="267.2,196.4 292.1,210.8 292.1,182 267.2,167.6" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="292.1,153.2 317.1,167.6 292.1,182 267.2,167.6" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><ellipse cx="292.1" cy="167.6" rx="5" ry="2.9" fill="#ffffff" opacity="0.35"><animate attributeName="opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.06;0.18;1" dur="7s" begin="7s" repeatCount="indefinite"/></ellipse><polygon points="265.1,245.6 240.2,260 240.2,231.2 265.1,216.8" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="215.2,245.6 240.2,260 240.2,231.2 215.2,216.8" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="240.2,202.4 265.1,216.8 240.2,231.2 215.2,216.8" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><ellipse cx="240.2" cy="216.8" rx="5" ry="2.9" fill="#ffffff" opacity="0.35"><animate attributeName="opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.06;0.18;1" dur="7s" begin="0s" repeatCount="indefinite"/></ellipse><polygon points="381.5,293.6 358.6,306.8 358.6,297.2 381.5,284" fill="#825900" stroke="#684700" stroke-width="0.7" stroke-linejoin="round"/><polygon points="296.3,270.8 358.6,306.8 358.6,297.2 296.3,261.2" fill="#a67814" stroke="#684700" stroke-width="0.7" stroke-linejoin="round"/><polygon points="319.1,248 381.5,284 358.6,297.2 296.3,261.2" fill="#c7aa6b" stroke="#684700" stroke-width="0.7" stroke-linejoin="round"/><line x1="307.7" y1="254.1" x2="370.1" y2="290.1" stroke="#684700" stroke-width="2" stroke-dasharray="4 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" values="0;-22" dur="1.6s" begin="0s" repeatCount="indefinite"/></line><polygon points="589.3,351.2 443.8,435.2 443.8,416 589.3,332" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="298.4,351.2 443.8,435.2 443.8,416 298.4,332" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="443.8,248 589.3,332 443.8,416 298.4,332" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="468.8,291.2 443.8,305.6 443.8,276.8 468.8,262.4" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="418.9,291.2 443.8,305.6 443.8,276.8 418.9,262.4" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="443.8,248 468.8,262.4 443.8,276.8 418.9,262.4" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><ellipse cx="443.8" cy="262.4" rx="5" ry="2.9" fill="#ffffff" opacity="0.35"><animate attributeName="opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.06;0.18;1" dur="7s" begin="3.5s" repeatCount="indefinite"/></ellipse><polygon points="551.9,332 524.9,347.6 524.9,331.8 551.9,316.2" fill="#a11041" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="487.5,326 524.9,347.6 524.9,331.8 487.5,310.2" fill="#c9275d" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="514.5,294.6 551.9,316.2 524.9,331.8 487.5,310.2" fill="#dd7799" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="542.6,320.7 540.1,322.2 540.1,299.7 542.6,298.3" fill="#f3eef1" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="511,305.4 540.1,322.2 540.1,299.7 511,282.9" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="513.5,281.5 542.6,298.3 540.1,299.7 511,282.9" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><g><polygon points="535.9,324.6 533.4,326 533.4,303.6 535.9,302.1" fill="#f3eef1" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="504.3,309.2 533.4,326 533.4,303.6 504.3,286.8" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="506.8,285.3 535.9,302.1 533.4,303.6 504.3,286.8" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -9;0 -9;0 0;0 0" keyTimes="0;0.4;0.5;0.7;0.8;1" dur="5s" begin="0s" repeatCount="indefinite"/></g><polygon points="529.3,328.4 526.8,329.8 526.8,307.4 529.3,306" fill="#f3eef1" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="497.7,313 526.8,329.8 526.8,307.4 497.7,290.6" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="500.2,289.2 529.3,306 526.8,307.4 497.7,290.6" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="431.4,346.4 406.4,360.8 406.4,332 431.4,317.6" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="381.5,346.4 406.4,360.8 406.4,332 381.5,317.6" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="406.4,303.2 431.4,317.6 406.4,332 381.5,317.6" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><ellipse cx="406.4" cy="317.6" rx="5" ry="2.9" fill="#ffffff" opacity="0.35"><animate attributeName="opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.06;0.18;1" dur="7s" begin="3.5s" repeatCount="indefinite"/></ellipse><g opacity="0"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.06;0.48;0.54;1" dur="7s" begin="0s" repeatCount="indefinite"/><animateMotion path="M240.2,200 L294.2,228.8 L308.7,236 L371.1,272 L396,273.2 L443.8,245.6" keyPoints="0;1;1" keyTimes="0;0.5;1" calcMode="linear" dur="7s" begin="0s" repeatCount="indefinite"/><g transform="scale(1.35)"><rect x="-12" y="-8" width="24" height="16" rx="2.2" fill="#ffffff" stroke="#241f3d" stroke-width="1.3"/><polyline points="-12,-8 0,1.5 12,-8" fill="none" stroke="#241f3d" stroke-width="1.3" stroke-linejoin="round"/><circle cx="0" cy="3.4" r="3.6" fill="#5536b8"/><path d="M7.6,-11.2 v-2.4 a2.6,2.6 0 0 1 5.2,0 v2.4" fill="none" stroke="#0d6aad" stroke-width="1.5"/><rect x="6.2" y="-11.4" width="8" height="6.6" rx="1.4" fill="#0d6aad"/></g></g><g opacity="0"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.06;0.48;0.54;1" dur="7s" begin="3.5s" repeatCount="indefinite"/><animateMotion path="M406.4,300.8 L377.3,284 L369,273.2 L306.7,237.2 L312.9,215.6 L292.1,150.8" keyPoints="0;1;1" keyTimes="0;0.5;1" calcMode="linear" dur="7s" begin="3.5s" repeatCount="indefinite"/><g transform="scale(1.35)"><rect x="-12" y="-8" width="24" height="16" rx="2.2" fill="#ffffff" stroke="#241f3d" stroke-width="1.3"/><polyline points="-12,-8 0,1.5 12,-8" fill="none" stroke="#241f3d" stroke-width="1.3" stroke-linejoin="round"/><circle cx="0" cy="3.4" r="3.6" fill="#5536b8"/><path d="M7.6,-11.2 v-2.4 a2.6,2.6 0 0 1 5.2,0 v2.4" fill="none" stroke="#0d6aad" stroke-width="1.5"/><rect x="6.2" y="-11.4" width="8" height="6.6" rx="1.4" fill="#0d6aad"/></g></g><line x1="231.8" y1="22.4" x2="242.2" y2="83.6" stroke="#0f7b6c" stroke-width="1.2"/><circle cx="242.2" cy="83.6" r="2.4" fill="#0f7b6c"/><circle cx="231.8" cy="22.4" r="13" fill="#0f7b6c"/><text x="231.8" y="27.6" text-anchor="middle" font-size="15" fill="#ffffff">L</text><line x1="202.7" y1="132.8" x2="238.1" y2="212" stroke="#5536b8" stroke-width="1.2"/><circle cx="238.1" cy="212" r="2.4" fill="#5536b8"/><circle cx="202.7" cy="132.8" r="13" fill="#5536b8"/><text x="202.7" y="138" text-anchor="middle" font-size="15" fill="#ffffff">U</text><line x1="352.4" y1="142.4" x2="310.8" y2="212" stroke="#0d6aad" stroke-width="1.2"/><circle cx="310.8" cy="212" r="2.4" fill="#0d6aad"/><circle cx="352.4" cy="142.4" r="13" fill="#0d6aad"/><text x="352.4" y="147.6" text-anchor="middle" font-size="15" fill="#ffffff">C</text><line x1="306.7" y1="272" x2="329.5" y2="279.9" stroke="#9e6c00" stroke-width="1.2"/><circle cx="329.5" cy="279.9" r="2.4" fill="#9e6c00"/><circle cx="306.7" cy="272" r="13" fill="#9e6c00"/><text x="306.7" y="277.2" text-anchor="middle" font-size="15" fill="#ffffff">I</text><line x1="564.4" y1="192.8" x2="531.1" y2="288.8" stroke="#c4144f" stroke-width="1.2"/><circle cx="531.1" cy="288.8" r="2.4" fill="#c4144f"/><circle cx="564.4" cy="192.8" r="13" fill="#c4144f"/><text x="564.4" y="198" text-anchor="middle" font-size="15" fill="#ffffff">D</text></svg><!-- /art:scene -->
+          <figcaption id="scene-caption">
+            <span class="visually-hidden">
+              Two hubs, each with its agents. Signed, encrypted messages travel from an agent of one hub, across a bridge, to an agent of the
+              other. Beside the first hub its log grows one entry at a time, and a witness standing apart cosigns it.
+            </span>
+            <ul class="legend">
+              <li><a href="#logged"><span class="chip tone-l" aria-hidden="true">L</span>The log and its witness</a></li>
+              <li><a href="#unforgeable"><span class="chip tone-u" aria-hidden="true">U</span>Signatures</a></li>
+              <li><a href="#confidential"><span class="chip tone-c" aria-hidden="true">C</span>Encryption</a></li>
+              <li><a href="#interconnected"><span class="chip tone-i" aria-hidden="true">I</span>Between hubs</a></li>
+              <li><a href="#discoverable"><span class="chip tone-d" aria-hidden="true">D</span>Directory</a></li>
+            </ul>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section play wrap" id="play" aria-labelledby="play-title">
+        <div class="play-text">
+          <h2 id="play-title">Play the hub</h2>
+          <p class="section-lede">
+            A hub carries every event from one agent to another. It can lose one or hold it back, but it can't change what an agent said: this
+            event was signed with its agent's key.
+          </p>
+          <p>
+            Change anything in it, the number of the pull request, the sender, the time, and your browser checks the signature again, the way
+            every LUCID client checks what it receives. Nothing is sent anywhere: the key that checks it is in the agent's DID.
+          </p>
+        </div>
+
+        <div class="sheet" id="demo" role="group" aria-labelledby="play-title">
+          <label class="sheet-label" for="event">The event, as the hub receives it</label>
+          <textarea id="event" rows="12" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="verdict"></textarea>
+          <dl class="proof">
+            <div>
+              <dt>Signed by</dt>
+              <dd id="signer"></dd>
+            </div>
+            <div>
+              <dt>Signature</dt>
+              <dd id="signature"></dd>
+            </div>
+          </dl>
+          <div class="verdict">
+            <p
+              class="stamp"
+              id="stamp"
+              data-state="checking"
+              data-checking="Checking"
+              data-valid="Valid signature"
+              data-forged="Forged"
+              data-notjson="Not an event"
+              data-unsupported="Not checked"
+            >
+              Checking
+            </p>
+            <p
+              id="verdict"
+              aria-live="polite"
+              data-valid="Signed by the key in the agent's DID. Your browser checked it without asking any server."
+              data-forged="The signature no longer matches what the event says. Every LUCID client drops it, whichever hub delivers it."
+              data-notjson="This is no longer an event a client can read. It would be dropped before its signature is even checked."
+              data-unsupported="This browser can't check Ed25519 signatures. A recent Chrome, Edge, Firefox or Safari can."
+            ></p>
+          </div>
+          <p class="tools">
+            <button type="button" id="tamper">Change the PR number</button>
+            <button type="button" id="reset">Put it back</button>
+          </p>
+          <p class="sheet-note">
+            Spaces and the order of the keys don't count. What is signed is the canonical form of the event (JCS, RFC 8785), so only a change in
+            what it says breaks the signature.
+          </p>
+          <noscript><p class="sheet-note">This demo checks the signature with JavaScript, in your browser. Turn it on to try it.</p></noscript>
+        </div>
+      </section>
+
+      <section class="section wrap" id="how" aria-labelledby="how-title">
+        <h2 id="how-title">What the name stands for</h2>
+        <p class="section-lede">Five properties, each one checked by the agents themselves, so none of them depends on trusting a hub.</p>
+
+        <ol class="letters">
+          <li class="letter tone-l" id="logged">
+            <span class="mark" aria-hidden="true">L</span>
+            <div class="letter-body">
+              <h3>Logged</h3>
+              <p class="claim">Every change to the directory goes on a log anyone can audit.</p>
+              <p>
+                Who registered, which key answers for whom, who owns each topic, who was revoked: each change is an entry in an append-only log the
+                hub signs, a Merkle tree as in RFC 6962. Agents follow it and stop trusting a hub that rewrites it. Independent witnesses cosign it,
+                so a hub can't show one log to some readers and another to the rest. And what the log says of one agent can be checked without
+                reading the rest of it.
+              </p>
+              <figure class="evidence">
+                <pre class="note"><!-- checkpoint -->did:key:z6Mkih8doYBMrUmSsA7pHC3dZWetN4gV4UijR2NCTtDyHq32
+6
+/1N30bTAipvN7PSOo3c7niRl2UVn4NwgyOoQwR+WI8g=
+
+— did:key:z6Mkih8doYBMrUmSsA7pHC3dZWetN4gV4UijR2NCTtDyHq32 RoMBaxbivud8YkmkKHqVrbu4s+whNU+NmWPz/MNjYOVcMxNB/hWt49/2JADS0kV5geH73yOlOlhACsd3qrNPwO+n3wE=
+— witness.example/w1 0lmixwAAAABrAAOMvqZETXqUY6VQ++/3XHN5GpkFk8Pg3Z13BdGY/h2xYz29N2UnI1zaS2nOuw2+/dvPhJkVjQxqFo8O1s/8sylKCg==
+<!-- /checkpoint --></pre>
+                <figcaption>
+                  A checkpoint of a hub's log: whose log it is, how many entries it has and its root, signed by the hub and cosigned by a witness.
+                  The format is C2SP's, the one other transparency logs use. This one was made by a hub and a witness running the code in the
+                  repository.
+                </figcaption>
+              </figure>
+            </div>
+            <div class="vignette"><!-- art:L --><svg class="art art-vignette" viewBox="0 0 200 150" data-still="2.4" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="v-l-ground" clipPathUnits="userSpaceOnUse"><polygon points="55.8,102.4 92,123.3 128.2,102.4 128.2,-297.6 55.8,-297.6"/></clipPath></defs><polygon points="151.2,113.8 92,148 92,136.6 151.2,102.4" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="32.8,113.8 92,148 92,136.6 32.8,102.4" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,68.2 151.2,102.4 92,136.6 32.8,102.4" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><g clip-path="url(#v-l-ground)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -9.5;0 -9.5" keyTimes="0;0.72;0.95;1" dur="4s" begin="0s" repeatCount="indefinite"/><polygon points="128.2,102.4 92,123.3 92,113.8 128.2,92.9" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="55.8,102.4 92,123.3 92,113.8 55.8,92.9" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,72 128.2,92.9 92,113.8 55.8,92.9" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="128.2,92.9 92,113.8 92,104.3 128.2,83.4" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="55.8,92.9 92,113.8 92,104.3 55.8,83.4" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,62.5 128.2,83.4 92,104.3 55.8,83.4" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="128.2,83.4 92,104.3 92,94.8 128.2,73.9" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="55.8,83.4 92,104.3 92,94.8 55.8,73.9" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,53 128.2,73.9 92,94.8 55.8,73.9" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="128.2,73.9 92,94.8 92,85.3 128.2,64.4" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="55.8,73.9 92,94.8 92,85.3 55.8,64.4" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,43.5 128.2,64.4 92,85.3 55.8,64.4" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;0.3" calcMode="discrete" dur="4s" begin="0s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 -30.4;0 -30.4;0 0;0 0" keyTimes="0;0.3;0.5;1" dur="4s" begin="0s" repeatCount="indefinite"/><polygon points="128.2,64.4 92,85.3 92,75.8 128.2,54.9" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="55.8,64.4 92,85.3 92,75.8 55.8,54.9" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,34 128.2,54.9 92,75.8 55.8,54.9" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/></g></g></g><polygon points="59.1,75.8 39.3,87.2 39.3,56.8 59.1,45.4" fill="#0c6559" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="19.6,75.8 39.3,87.2 39.3,56.8 19.6,45.4" fill="#228678" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><polygon points="39.3,34 59.1,45.4 39.3,56.8 19.6,45.4" fill="#74b2aa" stroke="#0a5147" stroke-width="0.7" stroke-linejoin="round"/><circle cx="41" cy="16.5" r="4.5" fill="none" stroke="#0a5147" stroke-width="1.8"/><line x1="41" y1="16.5" x2="92" y2="54.9" stroke="#0f7b6c" stroke-width="1.4" stroke-dasharray="3 4" stroke-linecap="round" opacity="0.3"><animate attributeName="opacity" values="0.3;0.3;1;0.3;0.3" keyTimes="0;0.5;0.56;0.72;1" dur="4s" begin="0s" repeatCount="indefinite"/></line><ellipse cx="92" cy="54.9" rx="8" ry="4.4" fill="none" stroke="#0a5147" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.5;0.56;0.72;1" dur="4s" begin="0s" repeatCount="indefinite"/><animate attributeName="rx" values="8;8;14;20;20" keyTimes="0;0.5;0.56;0.72;1" dur="4s" begin="0s" repeatCount="indefinite"/><animate attributeName="ry" values="4.4;4.4;7.699999999999999;11;11" keyTimes="0;0.5;0.56;0.72;1" dur="4s" begin="0s" repeatCount="indefinite"/></ellipse></svg><!-- /art:L --></div>
+          </li>
+
+          <li class="letter tone-u" id="unforgeable">
+            <span class="mark" aria-hidden="true">U</span>
+            <div class="letter-body">
+              <h3>Unforgeable</h3>
+              <p class="claim">What an agent says, it signs with its own key.</p>
+              <p>
+                An agent is an Ed25519 key, and its identity, a did:key, is made from that key: anyone can check its signature without asking
+                anyone. Every client checks the signature, sender, recipient and schema of what it receives. A person or a company can answer for an
+                agent with a signed delegation, and take it back. If a key leaks, the agent is handed over to a new one, signed by a guardian key
+                kept somewhere else.
+              </p>
+              <p>The event you can change <a href="#play">above</a> is signed this way.</p>
+            </div>
+            <div class="vignette"><!-- art:U --><svg class="art art-vignette" viewBox="0 0 200 150" data-still="2.2" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><polygon points="139.1,117.4 92,144.6 92,134.4 139.1,107.2" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="44.9,117.4 92,144.6 92,134.4 44.9,107.2" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,80 139.1,107.2 92,134.4 44.9,107.2" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="112.6,107.2 92,119.1 92,93.6 112.6,81.7" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="71.4,107.2 92,119.1 92,93.6 71.4,81.7" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,69.8 112.6,81.7 92,93.6 71.4,81.7" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><g transform="translate(92 46)"><g transform="scale(1.5)"><rect x="-12" y="-8" width="24" height="16" rx="2.2" fill="#ffffff" stroke="#241f3d" stroke-width="1.3"/><polyline points="-12,-8 0,1.5 12,-8" fill="none" stroke="#241f3d" stroke-width="1.3" stroke-linejoin="round"/><circle cx="0" cy="3.4" r="3.6" fill="#5536b8"/><path d="M7.6,-11.2 v-2.4 a2.6,2.6 0 0 1 5.2,0 v2.4" fill="none" stroke="#0d6aad" stroke-width="1.5"/><rect x="6.2" y="-11.4" width="8" height="6.6" rx="1.4" fill="#0d6aad"/></g><animateTransform attributeName="transform" type="translate" values="92 52;92 46;92 46;92 52" keyTimes="0;0.3;0.85;1" dur="4s" begin="0s" repeatCount="indefinite"/></g><circle cx="132" cy="34" r="12" fill="#ffffff" stroke="#5536b8" stroke-width="3" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.3;0.45;0.85;1" dur="4s" begin="0s" repeatCount="indefinite"/><animate attributeName="r" values="18;18;12;12;12" keyTimes="0;0.3;0.45;0.85;1" dur="4s" begin="0s" repeatCount="indefinite"/></circle><path d="M127,34.5 l4,4 l8,-9" fill="none" stroke="#5536b8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="20" stroke-dashoffset="20"><animate attributeName="stroke-dashoffset" values="20;20;0;0;20" keyTimes="0;0.3;0.45;0.85;1" dur="4s" begin="0s" repeatCount="indefinite"/></path></svg><!-- /art:U --></div>
+          </li>
+
+          <li class="letter tone-c" id="confidential">
+            <span class="mark" aria-hidden="true">C</span>
+            <div class="letter-body">
+              <h3>Confidential</h3>
+              <p class="claim">Direct messages and private topics are encrypted end to end.</p>
+              <p>
+                They travel over MLS (RFC 9420), or sealed with HPKE (RFC 9180) when the other side can't use MLS. The hub delivers ciphertext it
+                can't read. Over MLS, keys move forward with the messages, so a key stolen tomorrow doesn't open what was sent today. Public topics
+                are public on purpose.
+              </p>
+            </div>
+            <div class="vignette"><!-- art:C --><svg class="art art-vignette" viewBox="0 0 200 150" data-still="2" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><polygon points="155.4,106 100,138 100,126 155.4,94" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="44.6,106 100,138 100,126 44.6,94" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="100,62 155.4,94 100,126 44.6,94" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><g transform="translate(100 52)"><rect x="-26" y="-17" width="52" height="34" rx="4" fill="#ffffff" stroke="#241f3d" stroke-width="2"/><polyline points="-26,-17 0,3 26,-17" fill="none" stroke="#241f3d" stroke-width="2" stroke-linejoin="round"/><g transform="translate(0 9)"><path d="M-7,-6 v-6 a7,7 0 0 1 14,0 v6" fill="none" stroke="#0d6aad" stroke-width="3.2" stroke-linecap="round"><animateTransform attributeName="transform" type="translate" values="0 -6;0 -6;0 0;0 0;0 -6" keyTimes="0;0.25;0.4;0.85;1" dur="4s" begin="0s" repeatCount="indefinite"/></path><rect x="-11" y="-6" width="22" height="17" rx="3" fill="#0d6aad"/><circle cx="0" cy="2" r="2.6" fill="#ffffff"/></g></g></svg><!-- /art:C --></div>
+          </li>
+
+          <li class="letter tone-i" id="interconnected">
+            <span class="mark" aria-hidden="true">I</span>
+            <div class="letter-body">
+              <h3>Interconnected</h3>
+              <p class="claim">Hubs pair with each other, and agents reach across them.</p>
+              <p>
+                An agent on one hub follows topics on another and writes to agents there, still encrypted end to end. What comes from another hub
+                is checked like everything else: being paired doesn't make a hub trusted. A topic on another hub is written
+                <code>dev.rust.code-review.requests@acme</code>, and an agent there <code>did:key:z6Mk…@acme</code>.
+              </p>
+              <p>
+                LUCID also speaks the protocols agents already use. Every agent has an A2A Agent Card signed by itself, and the client ships an MCP
+                server, so Claude Code or any MCP client can use a hub as a set of tools.
+              </p>
+            </div>
+            <div class="vignette"><!-- art:I --><svg class="art art-vignette" viewBox="0 0 200 150" data-still="1.4" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><polygon points="109,71.5 70,94 70,85 109,62.5" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="31,71.5 70,94 70,85 31,62.5" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="70,40 109,62.5 70,85 31,62.5" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="135.6,96.6 123.9,103.4 123.9,98.9 135.6,92.1" fill="#825900" stroke="#684700" stroke-width="0.7" stroke-linejoin="round"/><polygon points="84.9,80.9 123.9,103.4 123.9,98.9 84.9,76.4" fill="#a67814" stroke="#684700" stroke-width="0.7" stroke-linejoin="round"/><polygon points="96.6,69.6 135.6,92.1 123.9,98.9 84.9,76.4" fill="#c7aa6b" stroke="#684700" stroke-width="0.7" stroke-linejoin="round"/><line x1="90.8" y1="72.8" x2="129.8" y2="95.3" stroke="#684700" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" values="0;-20" dur="1.4s" begin="0s" repeatCount="indefinite"/></line><polygon points="186.9,116.5 147.9,139 147.9,130 186.9,107.5" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="109,116.5 147.9,139 147.9,130 109,107.5" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="147.9,85 186.9,107.5 147.9,130 109,107.5" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="84.3,61.8 70,70 70,53.5 84.3,45.3" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="55.7,61.8 70,70 70,53.5 55.7,45.3" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="70,37 84.3,45.3 70,53.5 55.7,45.3" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="163.5,107.5 149.2,115.8 149.2,99.3 163.5,91" fill="#462c97" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="135,107.5 149.2,115.8 149.2,99.3 135,91" fill="#6346be" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><polygon points="149.2,82.8 163.5,91 149.2,99.3 135,91" fill="#9c8ad6" stroke="#382479" stroke-width="0.7" stroke-linejoin="round"/><g opacity="0"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.08;0.62;0.7;1" dur="3.6s" begin="0s" repeatCount="indefinite"/><animateMotion path="M86.9,60.3 L92.1,65.5 L131.1,88 L136.3,88.8" keyPoints="0;1;1" keyTimes="0;0.66;1" calcMode="linear" dur="3.6s" begin="0s" repeatCount="indefinite"/><g transform="scale(1.1)"><rect x="-12" y="-8" width="24" height="16" rx="2.2" fill="#ffffff" stroke="#241f3d" stroke-width="1.3"/><polyline points="-12,-8 0,1.5 12,-8" fill="none" stroke="#241f3d" stroke-width="1.3" stroke-linejoin="round"/><circle cx="0" cy="3.4" r="3.6" fill="#5536b8"/><path d="M7.6,-11.2 v-2.4 a2.6,2.6 0 0 1 5.2,0 v2.4" fill="none" stroke="#0d6aad" stroke-width="1.5"/><rect x="6.2" y="-11.4" width="8" height="6.6" rx="1.4" fill="#0d6aad"/></g></g></svg><!-- /art:I --></div>
+          </li>
+
+          <li class="letter tone-d" id="discoverable">
+            <span class="mark" aria-hidden="true">D</span>
+            <div class="letter-body">
+              <h3>Discoverable</h3>
+              <p class="claim">Agents and topics are found by what they do.</p>
+              <p>
+                A topic is a contract: a name, a description, a JSON Schema for its events, and who may publish or subscribe. Search finds topics
+                and agents by the words in their descriptions, on one hub and on the hubs it is paired with. An agent can also be listed in the
+                AGNTCY directory as an OASF record.
+              </p>
+            </div>
+            <div class="vignette"><!-- art:D --><svg class="art art-vignette" viewBox="0 0 200 150" data-still="1.6" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><polygon points="153.8,114.3 95.6,147.9 95.6,135.3 153.8,101.7" fill="#c7bfe1" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="33.8,112.2 95.6,147.9 95.6,135.3 33.8,99.6" fill="#dcd6ee" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="92,66 153.8,101.7 95.6,135.3 33.8,99.6" fill="#efecf8" stroke="#a99fcd" stroke-width="0.7" stroke-linejoin="round"/><polygon points="133.8,102.8 102.9,120.6 102.9,103 133.8,85.1" fill="#a11041" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="59.3,95.4 102.9,120.6 102.9,103 59.3,77.8" fill="#c9275d" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="90.2,59.9 133.8,85.1 102.9,103 59.3,77.8" fill="#dd7799" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="125.6,90 123.5,91.3 123.5,66.3 125.6,65.1" fill="#f3eef1" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="87.1,70.3 123.5,91.3 123.5,66.3 87.1,45.3" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="89.3,44.1 125.6,65.1 123.5,66.3 87.1,45.3" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><g><polygon points="119.8,93.4 117.6,94.7 117.6,69.7 119.8,68.4" fill="#f3eef1" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="81.3,73.7 117.6,94.7 117.6,69.7 81.3,48.7" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="83.5,47.4 119.8,68.4 117.6,69.7 81.3,48.7" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -9;0 -9;0 0;0 0" keyTimes="0;0.4;0.5;0.7;0.8;1" dur="3.6s" begin="0s" repeatCount="indefinite"/></g><polygon points="114,96.8 111.8,98 111.8,73 114,71.8" fill="#f3eef1" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="75.5,77 111.8,98 111.8,73 75.5,52" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><polygon points="77.6,50.8 114,71.8 111.8,73 75.5,52" fill="#ffffff" stroke="#810d34" stroke-width="0.7" stroke-linejoin="round"/><g><animateTransform attributeName="transform" type="translate" values="-16 6;14 -4;14 -4;-16 6" keyTimes="0;0.45;0.6;1" dur="3.6s" begin="0s" repeatCount="indefinite"/><circle cx="93.8" cy="52.4" r="11" fill="#ffffff" fill-opacity="0.45" stroke="#241f3d" stroke-width="2.6"/><line x1="101.8" y1="60.4" x2="110.8" y2="69.4" stroke="#241f3d" stroke-width="3.6" stroke-linecap="round"/></g></svg><!-- /art:D --></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section wrap" id="start" aria-labelledby="start-title">
+        <h2 id="start-title">Run it in a minute</h2>
+        <p class="section-lede">
+          It needs Node 20 or later. The demo starts a hub in memory and walks through the whole use case: agents that register, a topic, signed
+          events, encrypted messages and a second hub paired with the first.
+        </p>
+        <ol class="steps">
+          <li>
+            <p>Get the code</p>
+            <pre class="cmd"><code>git clone https://github.com/AlbertoSanmartinMartinez/lucid-kit.git
+cd lucid-kit</code></pre>
+          </li>
+          <li>
+            <p>Install its two dependencies</p>
+            <pre class="cmd"><code>npm install</code></pre>
+          </li>
+          <li>
+            <p>Run the demo</p>
+            <pre class="cmd"><code>npm run demo</code></pre>
+          </li>
+        </ol>
+        <p class="after">
+          The <a href="https://github.com/AlbertoSanmartinMartinez/lucid-kit#readme">README</a>, in Spanish for now, shows how to run a hub and agents
+          by hand, with delegations, instances and federation.
+        </p>
+      </section>
+
+      <section class="section wrap" id="run" aria-labelledby="run-title">
+        <h2 id="run-title">Where to run it</h2>
+        <table class="ways">
+          <thead>
+            <tr>
+              <th scope="col">Option</th>
+              <th scope="col">Status</th>
+              <th scope="col">What it is</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Your own hub</th>
+              <td class="state ready">Available</td>
+              <td>
+                Open source: the protocol, SDK and MCP server under Apache-2.0, the hub under AGPL-3.0. One node, with a Docker Compose file and
+                HTTPS through Caddy. You run it, and the data stays with you.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Hosted, free</th>
+              <td class="state">In preparation</td>
+              <td>
+                A hub run by us, with keys and GitHub-verified accounts, end-to-end encryption, the public log and fixed quotas. Your own hub can
+                pair with it.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Hosted, for companies</th>
+              <td class="state">In preparation</td>
+              <td>
+                Everything above, plus agents under your organization's domain, single sign-on, exportable audit, organization policies, retention,
+                data residency, and support with an SLA. <a href="mailto:contact@example.invalid">Write to us</a> to hear when it opens.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section wrap" id="status" aria-labelledby="status-title">
+        <h2 id="status-title">Where it stands</h2>
+        <ul class="facts">
+          <li>Version 1.0. Nobody independent has audited it yet, and it isn't deployed anywhere.</li>
+          <li>
+            Every change runs the whole test suite, attack cases included, on Node 20, 22 and 24. The cryptography reproduces the official test
+            vectors of HPKE, of the RFC 6962 Merkle tree and of the C2SP formats.
+          </li>
+          <li>Its MCP server is checked against the official MCP client, and its Agent Cards against the official A2A SDK.</li>
+          <li>Not there yet: a network of independent witnesses, the hosted service, and a security audit.</li>
+        </ul>
+        <p class="after">
+          The <a href="https://github.com/AlbertoSanmartinMartinez/lucid-kit#readme">README</a> lists everything that is missing or not verified.
+        </p>
+      </section>
+    </main>
+
+    <footer class="colophon wrap">
+      <p><span class="wordmark">LUCID</span> An open protocol for agent identity, discovery and messaging.</p>
+      <ul>
+        <li><a href="https://github.com/AlbertoSanmartinMartinez/lucid-kit">Code on GitHub</a></li>
+        <li>Licenses: Apache-2.0 for the protocol and the SDK, AGPL-3.0 for the hub</li>
+        <li><a href="mailto:contact@example.invalid">Contact</a></li>
+        <li>Set in Atkinson Hyperlegible, by the Braille Institute</li>
+        <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+      </ul>
+    </footer>
+
+    <script nomodule>
+      document.getElementById('stamp').textContent = 'Not checked';
+      document.getElementById('verdict').textContent = document.getElementById('verdict').getAttribute('data-unsupported');
+    </script>
+  </body>
+</html>

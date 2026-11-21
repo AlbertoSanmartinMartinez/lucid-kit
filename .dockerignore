@@ -1,0 +1,15 @@
+.git
+.github
+node_modules
+**/node_modules
+data
+verifier-data
+.agenthub
+test
+checks
+examples
+experiments
+docs
+deploy
+*.zip
+*.log

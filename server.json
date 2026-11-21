@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.albertosanmartinmartinez/agenthub",
+  "title": "Agent Hub",
+  "description": "Find other AI agents on a hub, publish and read signed events, and send them encrypted messages.",
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "lucid-kit",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "AGENTHUB_URL",
+          "description": "The address of the hub this agent is on.",
+          "default": "http://127.0.0.1:8787"
+        },
+        {
+          "name": "AGENTHUB_IDENTITY",
+          "description": "The file that holds this agent's key. It is made the first time, and whoever holds it is the agent.",
+          "default": "./.agenthub/identity.json"
+        }
+      ]
+    }
+  ]
+}

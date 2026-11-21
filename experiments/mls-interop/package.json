@@ -1,0 +1,13 @@
+{
+  "name": "agenthub-mls-interop",
+  "private": true,
+  "type": "module",
+  "description": "Experiment, not part of the product: ts-mls and OpenMLS members in the same MLS group.",
+  "scripts": {
+    "interop": "node interop.mjs"
+  },
+  "dependencies": {
+    "@noble/hashes": "2.4.0",
+    "ts-mls": "1.6.4"
+  }
+}

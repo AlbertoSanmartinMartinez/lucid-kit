@@ -1,0 +1,9 @@
+{
+  "name": "agenthub-check-a2a-client",
+  "private": true,
+  "type": "module",
+  "description": "Reads and verifies the A2A cards a hub serves with the official A2A SDK. A check, not part of the product.",
+  "dependencies": {
+    "@a2a-js/sdk": "1.3.0"
+  }
+}

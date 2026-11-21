@@ -1,0 +1,9 @@
+{
+  "name": "agenthub-check-mcp-client",
+  "private": true,
+  "type": "module",
+  "description": "Drives the Agent Hub MCP server with the official MCP client. A check, not part of the product.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2"
+  }
+}

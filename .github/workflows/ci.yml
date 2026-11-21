@@ -1,0 +1,74 @@
+# What has to hold before anything is merged or released: the tests, on every Node version the README
+# promises, the checks that start real hub processes (checks/README.md), and the image of the hub.
+name: CI
+
+on:
+  push:
+    paths-ignore: ['**.md', 'docs/**']
+  pull_request:
+    paths-ignore: ['**.md', 'docs/**']
+
+# One run per branch: a push that comes while another is running takes its place.
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Tests (Node ${{ matrix.node }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - name: Tests
+        run: npm test
+      - name: Demo
+        run: npm run demo
+
+  checks:
+    name: Checks with real processes
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # from the version after 1.0.0, three checks take the earlier version out of the history
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: The official MCP client, a dependency of its check only
+        run: npm ci
+        working-directory: checks/mcp-client
+      - name: The official A2A SDK, a dependency of its check only
+        run: npm ci
+        working-directory: checks/a2a-client
+      - name: Every check, in each of its variants
+        run: bash checks/all.sh
+
+  image:
+    name: The image of the hub, and a hub of one's own
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build the image
+        run: docker build --quiet -t agenthub/hub:ci .
+      - name: The image holds what it runs
+        run: docker run --rm --entrypoint node agenthub/hub:ci bin/agenthub.mjs --help > /dev/null
+      # What somebody who runs their own hub is given, used the way the guide says.
+      - name: The self-hosted files
+        run: bash checks/self-hosted.sh

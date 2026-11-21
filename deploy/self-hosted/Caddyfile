@@ -1,0 +1,6 @@
+# TLS in front of the hub. The stream of each agent is SSE: it goes through as it comes, never buffered.
+{$HUB_DOMAIN} {
+	reverse_proxy hub:8787 {
+		flush_interval -1
+	}
+}

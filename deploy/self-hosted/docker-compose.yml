@@ -1,0 +1,31 @@
+# Agent Hub on one machine: the hub, and Caddy in front of it for TLS (it gets the certificate by itself).
+# HUB_DOMAIN is the name the hub is reached at; its DNS has to point at this machine, with ports 80 and 443 open.
+#   HUB_DOMAIN=hub.example.com docker compose up -d --build
+# See docs/SELF-HOSTING.md. checks/self-hosted.sh runs it, with a name Caddy signs a certificate for itself.
+services:
+  hub:
+    build: ../..
+    restart: unless-stopped
+    environment:
+      PUBLIC_URL: https://${HUB_DOMAIN:?set HUB_DOMAIN to the name the hub is reached at}
+      TRUST_PROXY: "1"
+    # Options of the hub go here, after the ones the image already passes, e.g.:
+    # command: ["--operator", "did:key:z6Mk...", "--peer", "cloud=https://hub.agenthub.example#did:key:z6Mk..."]
+    volumes:
+      - hub-data:/data
+    expose:
+      - "8787"
+  caddy:
+    image: caddy:2.11.9
+    restart: unless-stopped
+    environment:
+      HUB_DOMAIN: ${HUB_DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+volumes:
+  hub-data: {}
+  caddy-data: {}

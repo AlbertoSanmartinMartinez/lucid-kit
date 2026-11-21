@@ -1,0 +1,809 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* The landing page of LUCID. One family, Atkinson Hyperlegible, served from this site: it was drawn so
+   that no two characters are mistaken for each other, which is what reading a DID or a hash asks for.
+   The colours are those of ink and a notary's stamp: witnesses cosign the log, and the page stamps
+   what it checks. */
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('../fonts/atkinson-hyperlegible-next-latin.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible Mono';
+  src: url('../fonts/atkinson-hyperlegible-mono-latin.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f7f8f6;
+  --sheet: #ffffff;
+  --ink: #241f3d;
+  --seal: #5536b8;
+  --void: #c0262d;
+  --graphite: #5e6472;
+  --rule: #d9dce3;
+  --wash: #f1eff8;
+
+  /* One ink for each letter of the name, and for its part of the drawings (site/tools/art.mjs). Chosen so
+     that no two of them are near each other, also for whoever does not tell red from green, and so that
+     white reads on each (4.5:1 at least). None of them leans to purple but the violet of signatures. */
+  --log: #0f7b6c;
+  --sign: #5536b8;
+  --crypt: #0d6aad;
+  --bridge: #9e6c00;
+  --find: #c4144f;
+
+  --font: 'Atkinson Hyperlegible Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Atkinson Hyperlegible Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --measure: 38rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --page: 72rem;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+pre {
+  margin: 0;
+}
+
+a {
+  color: var(--seal);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--seal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+code,
+pre,
+.code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--page) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.tone-l {
+  --tone: var(--log);
+}
+.tone-u {
+  --tone: var(--sign);
+}
+.tone-c {
+  --tone: var(--crypt);
+}
+.tone-i {
+  --tone: var(--bridge);
+}
+.tone-d {
+  --tone: var(--find);
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.skip:focus {
+  top: 0.75rem;
+}
+
+/* ---------------------------------------------------------------- masthead */
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.5rem;
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.masthead nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  font-size: 1rem;
+}
+
+.masthead nav a {
+  color: var(--graphite);
+  text-decoration: none;
+}
+
+.masthead nav a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------- hero */
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  padding-block: clamp(1.5rem, 5vw, 4rem) clamp(3rem, 7vw, 5.5rem);
+  align-items: center;
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+/* The scene: two hubs, their agents, the bridge, the log and its witness. */
+
+.scene {
+  margin: 0;
+}
+
+.art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.art text {
+  font-family: var(--font);
+  font-weight: 800;
+}
+
+.legend {
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.legend a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.legend a:hover {
+  text-decoration: underline;
+}
+
+.chip {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--tone);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.8125rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.125rem, 4.2vw, 3.5rem);
+  line-height: 1.07;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.lede {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  border: 2px solid var(--seal);
+  background: var(--seal);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #4429a3;
+  border-color: #4429a3;
+}
+
+.button.quiet {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.button.quiet:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------------------------------------------------------------- the demo */
+
+.sheet {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: clamp(1.1rem, 2.6vw, 1.75rem);
+}
+
+/* Play the hub: what happens, and the event to change. */
+
+.play {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 60rem) {
+  .play {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+}
+
+.play-text p + p {
+  margin-top: 1rem;
+  max-width: var(--measure);
+}
+
+.sheet-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9375rem;
+  color: var(--graphite);
+}
+
+.sheet textarea {
+  display: block;
+  width: 100%;
+  resize: vertical;
+  min-height: 10rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--wash);
+  color: var(--ink);
+  caret-color: var(--seal);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+  tab-size: 2;
+}
+
+.sheet textarea:focus-visible {
+  outline-offset: 1px;
+  background: #ffffff;
+}
+
+.proof {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.proof div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 30rem) {
+  .proof div {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+.proof dt {
+  color: var(--graphite);
+}
+
+.proof dd {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+.verdict {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.25rem;
+  min-height: 3.25rem;
+}
+
+.stamp {
+  --tilt: -3deg;
+  flex: none;
+  display: inline-block;
+  padding: 0.3em 0.75em;
+  border: 4px double currentColor;
+  border-radius: 8px;
+  color: var(--seal);
+  font-weight: 800;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  transform: rotate(var(--tilt));
+}
+
+.stamp[data-state='forged'],
+.stamp[data-state='notjson'] {
+  --tilt: 2.5deg;
+  color: var(--void);
+}
+
+.stamp[data-state='checking'],
+.stamp[data-state='unsupported'] {
+  --tilt: 0deg;
+  color: var(--graphite);
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.stamp.pressed {
+  animation: press 260ms cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+@keyframes press {
+  from {
+    transform: rotate(var(--tilt)) scale(1.35);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(var(--tilt)) scale(1);
+    opacity: 1;
+  }
+}
+
+.verdict p:not(.stamp) {
+  flex: 1 1 14rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.tools {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tools button {
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.tools button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.sheet-note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+/* ---------------------------------------------------------------- sections */
+
+.section {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.section h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+}
+
+.section-lede {
+  margin-top: 1rem;
+  max-width: var(--measure);
+  color: var(--ink);
+}
+
+/* The name, read down the page: each letter is the property it stands for. */
+
+.letters {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: 0;
+  list-style: none;
+}
+
+.letter {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0 0.85rem;
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 1.5rem;
+}
+
+.vignette {
+  grid-column: 2;
+  margin-top: 1.25rem;
+  width: min(13rem, 70%);
+}
+
+.letter:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 48rem) {
+  .letter {
+    grid-template-columns: clamp(6rem, 11vw, 8.5rem) minmax(0, 40rem) minmax(11rem, 16rem);
+    gap: 0 clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .vignette {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+.mark {
+  font-size: clamp(2.75rem, 9vw, 6.75rem);
+  line-height: 0.82;
+  font-weight: 800;
+  color: var(--tone, var(--seal));
+  letter-spacing: -0.02em;
+}
+
+.letter h3 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 750;
+  color: var(--tone, var(--ink));
+}
+
+.gloss {
+  font-weight: 400;
+  color: var(--graphite);
+}
+
+.claim {
+  margin-top: 0.35rem;
+  font-size: 1.25rem;
+  line-height: 1.45;
+  font-weight: 600;
+  max-width: var(--measure);
+}
+
+.letter p + p {
+  margin-top: 0.85rem;
+}
+
+.letter p:not(.claim) {
+  max-width: var(--measure);
+}
+
+.evidence {
+  margin-top: 1.4rem;
+  max-width: var(--measure);
+}
+
+.note {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.evidence figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+/* ---------------------------------------------------------------- get started */
+
+.steps {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 1.5rem;
+  max-width: 44rem;
+}
+
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.3rem 0.75rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  grid-row: span 2;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--seal);
+}
+
+.cmd {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.cmd code {
+  font-size: inherit;
+}
+
+.after {
+  margin-top: 2rem;
+  max-width: var(--measure);
+}
+
+/* ---------------------------------------------------------------- where to run it */
+
+.ways {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  width: 100%;
+  max-width: 60rem;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.ways th,
+.ways td {
+  text-align: left;
+  vertical-align: top;
+  padding: 1.1rem 1.25rem 1.1rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.ways thead th {
+  border-top: 0;
+  padding-top: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--graphite);
+}
+
+.ways tbody th {
+  font-weight: 700;
+  width: 13rem;
+}
+
+.ways .state {
+  width: 10rem;
+  color: var(--graphite);
+  white-space: nowrap;
+}
+
+/* A dot that says how far along each option is: full when it is there, hollow while it is on its way. */
+.ways .state::before {
+  content: '';
+  display: inline-block;
+  width: 0.65em;
+  height: 0.65em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  vertical-align: 0.02em;
+}
+
+.ways .state.ready {
+  color: var(--log);
+  font-weight: 700;
+}
+
+.ways .state.ready::before {
+  background: currentColor;
+}
+
+@media (max-width: 47.99rem) {
+  .ways thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .ways tr,
+  .ways th,
+  .ways td {
+    display: block;
+    width: auto;
+  }
+
+  .ways tbody tr {
+    border-top: 1px solid var(--rule);
+    padding-block: 1.1rem;
+  }
+
+  .ways th,
+  .ways td {
+    border-top: 0;
+    padding: 0;
+  }
+
+  .ways .state {
+    margin-block: 0.15rem 0.4rem;
+  }
+}
+
+/* ---------------------------------------------------------------- where it stands */
+
+.facts {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding-left: 1.2rem;
+  max-width: var(--measure);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.facts li::marker {
+  color: var(--seal);
+}
+
+/* ---------------------------------------------------------------- colophon */
+
+.colophon {
+  padding-block: 2.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  color: var(--graphite);
+  display: grid;
+  gap: 1rem;
+}
+
+.colophon .wordmark {
+  font-size: 1.125rem;
+  margin-right: 0.6rem;
+}
+
+.colophon ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+}
+
+.colophon a {
+  color: var(--graphite);
+}
+
+.colophon a:hover {
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .stamp.pressed {
+    animation: none;
+  }
+}

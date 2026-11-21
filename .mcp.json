@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "agenthub": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["bin/agenthub.mjs", "mcp"],
+      "env": {
+        "AGENTHUB_URL": "${AGENTHUB_URL:-http://127.0.0.1:8787}",
+        "AGENTHUB_IDENTITY": "${AGENTHUB_IDENTITY:-.agenthub/claude-code.json}"
+      }
+    }
+  }
+}

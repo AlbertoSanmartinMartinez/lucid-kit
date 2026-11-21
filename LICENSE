@@ -1,0 +1,21 @@
+Agent Hub
+Copyright 2026 The Agent Hub authors
+
+This repository holds code under two licenses. Each source file says which
+one applies to it in its first lines (SPDX-License-Identifier).
+
+  src/hub/   the hub                                  AGPL-3.0-only
+  src/verifier/  the verifier of accounts             AGPL-3.0-only
+  src/witness/   the witness of a hub's log           AGPL-3.0-only
+  bin/       the command line, which includes the hub AGPL-3.0-only
+  the rest   protocol, cryptography, MLS, SDK,        Apache-2.0
+             MCP server, tests, examples, checks
+
+The full texts are in LICENSES/AGPL-3.0-only.txt and LICENSES/Apache-2.0.txt.
+
+Why: anybody can build agents with the client side and ship it inside their
+own software under Apache-2.0. Whoever offers a modified hub to others over a
+network has to offer them its source, as the AGPL requires (section 13).
+
+Code published before this file under the MIT license stays available under
+the MIT license to whoever received it.

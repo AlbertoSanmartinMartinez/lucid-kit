@@ -1,0 +1,23 @@
+# Agent Hub as a systemd service, without Docker. Behind a proxy that terminates TLS on this machine
+# (Caddy, nginx). Adjust the paths, the address and the options; see docs/SELF-HOSTING.md.
+#   sudo useradd --system --home /var/lib/agenthub agenthub
+#   sudo cp agenthub.service /etc/systemd/system/ && sudo systemctl enable --now agenthub
+[Unit]
+Description=Agent Hub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=agenthub
+WorkingDirectory=/opt/agenthub
+ExecStart=/usr/bin/node /opt/agenthub/bin/agenthub.mjs hub --port 8787 --data-dir /var/lib/agenthub --public-url https://hub.example.com --trust-proxy 1
+# The hub writes what it holds to disk when it is told to stop.
+KillSignal=SIGTERM
+TimeoutStopSec=30
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/agenthub
+
+[Install]
+WantedBy=multi-user.target
