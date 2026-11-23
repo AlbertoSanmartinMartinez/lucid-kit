@@ -43,15 +43,15 @@ Fuera de los tests, la página se ha probado en tres motores: Chrome, Firefox 15
 
 ## Dónde está publicada
 
-En **https://uselucid.org** (y `www.uselucid.org`), con DigitalOcean App Platform como sitio estático: sirve esta carpeta tal cual, sin paso de construcción, y la vuelve a publicar en cada push a `main`. Lo que DigitalOcean sabe de ella está en `.do/app.yaml`, en la raíz del repositorio, que no lleva ningún secreto. Se creó una vez con `doctl apps create --spec .do/app.yaml`, y un cambio en ese fichero se aplica con `doctl apps update ID --spec .do/app.yaml`. El DNS del dominio está en Cloudflare, sin su proxy, para que DigitalOcean pueda sacar el certificado.
+En **https://uselucid.org** (y `www.uselucid.org`), con DigitalOcean App Platform como sitio estático: sirve esta carpeta tal cual, sin paso de construcción, y la vuelve a publicar en cada push a `main`. Lo que DigitalOcean sabe de ella está en `.do/app.yaml`, en la raíz del repositorio, que no lleva ningún secreto. Se creó una vez con `doctl apps create --spec .do/app.yaml`, y un cambio en ese fichero se aplica con `doctl apps update ID --spec .do/app.yaml`. La app se llama `lucid-landing` y su dirección de DigitalOcean es `lucid-landing-jix5c.ondigitalocean.app`. El DNS del dominio está en Cloudflare: dos CNAME (`@` y `www`) a esa dirección, sin su proxy, para que DigitalOcean saque el certificado (Let's Encrypt, para `uselucid.org` y `*.uselucid.org`, que renueva solo).
 
-Cada página dice su dirección canónica y la de la otra lengua (`hreflang`), y los enlaces de contacto van a `info@albertosanmartinmartinez.es`.
+Cada página dice su dirección canónica y la de la otra lengua (`hreflang`), y los enlaces de contacto van a `info@albertosanmartinmartinez.es`. La CDN de DigitalOcean, que es Cloudflare, esconde ese correo en el HTML que sirve y añade un script suyo, servido desde el mismo dominio, que lo descifra al cargar la página: sin JavaScript, el enlace lleva a una página de Cloudflare.
 
 Falta una imagen para compartir el enlace (`og:image`).
 
 ## Lo que no hace
 
-- **Sin analítica, sin cookies y sin nada de terceros.** No sabe quién la visita.
+- **Sin analítica y sin cookies.** No sabe quién la visita. De terceros solo lleva el script con que la CDN descifra el correo, que pone ella (arriba).
 - **Sin modo oscuro.**
 - **Las ilustraciones se mueven con SMIL,** que todos los navegadores actuales entienden. Sin JavaScript se mueven igualmente, aunque se haya pedido menos movimiento.
 - **Un navegador sin Ed25519 en WebCrypto** (versiones antiguas) ve la demo pero no la comprueba, y la página lo dice.

@@ -1437,3 +1437,20 @@ Hasta la 1.0.0 el proyecto vivía en un solo repositorio privado, con el servici
 **Lo que esto exige del código de aquí.** Que el servicio alojado pueda instalar el paquete desde una etiqueta y usarlo tal cual: sin campo `exports`, sin scripts que se ejecuten al instalarlo, y sin mover ni renombrar ficheros de `src/core`, `src/mls` y `src/sdk` sin cambiar de versión. `test/package.test.mjs` comprueba las dos primeras cosas, y también que el hub y el servidor MCP dicen la versión del paquete. La suite son 289.
 
 **Comprobado:** `npm test` (289), `npm run demo`, `checks/all.sh` (las 8 variantes), la imagen del hub con `checks/self-hosted.sh` y `npm pack --dry-run`: `lucid-kit-1.0.0.tgz`, con `bin/`, `src/`, las licencias, el README y `package.json`.
+
+## 38. La landing, publicada en uselucid.org (23 de noviembre de 2026)
+
+**Decisiones del dueño.** La landing se sirve con DigitalOcean App Platform, como sitio estático, en su dominio `uselucid.org`, que tiene en Cloudflare. El contacto es `info@albertosanmartinmartinez.es`. El acceso a DigitalOcean es con `doctl`, conectado por el dueño en su terminal, con un token que no pasa por la conversación.
+
+**Qué se hizo.**
+- **Las páginas** dicen su dirección canónica y la de la otra lengua (`canonical`, `og:url` y `hreflang`), y los enlaces de contacto van a ese correo. Un test lo comprueba: 290.
+- **`.do/app.yaml`**, nuevo y sin secretos, describe la app: `site/` tal cual, sin paso de construcción, vuelta a publicar en cada push a `main`, en `uselucid.org` y `www.uselucid.org`. La app (`lucid-landing`) se creó con `doctl apps create --spec .do/app.yaml`, después de que el dueño diera a la app de DigitalOcean acceso a este repositorio, y solo a este.
+- **El DNS:** dos CNAME en Cloudflare, `@` y `www`, a `lucid-landing-jix5c.ondigitalocean.app`, sin el proxy de Cloudflare. DigitalOcean sacó el certificado de Let's Encrypt, para `uselucid.org` y `*.uselucid.org`, y lo renueva solo.
+
+**Comprobado.** `https://uselucid.org/`, `/es/` y `https://www.uselucid.org/` contestan 200 con ese certificado, y `http://` redirige a `https://`. En Chrome, las dos páginas cargan sin errores ni peticiones fallidas y con sus fuentes, la demo da la firma por buena y los dos enlaces de contacto llevan al correo. Las hojas de estilo, los módulos y las fuentes se sirven con su tipo.
+
+**Lo que hay que saber.**
+- **La CDN esconde el correo.** La de DigitalOcean es Cloudflare, y cambia los `mailto:` del HTML por una dirección suya, con un script, servido desde el mismo dominio, que los descifra al cargar. Con JavaScript el enlace funciona igual; sin él lleva a una página de Cloudflare. Es el único código ajeno de la página.
+- **`www` no redirige** al dominio sin `www`: sirve la misma página, y su dirección canónica dice cuál es la buena.
+- **Se sirve la carpeta entera,** también `README.md` y `tools/`, que ya son públicos en el repositorio.
+- **Falta** una imagen para compartir el enlace (`og:image`) y pasar `web-design-guidelines`.
