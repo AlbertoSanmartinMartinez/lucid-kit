@@ -41,12 +41,13 @@ Corren con `npm test`, y en GitHub con Node 20, 22 y 24, que comprueban Ed25519 
 
 Fuera de los tests, la página se ha probado en tres motores: Chrome, Firefox 153 y WebKit 26, el de Safari, este con el navegador que trae Playwright y no con Safari. En los tres se comprobó lo mismo. Carga sin errores ni peticiones fallidas y con sus fuentes. La demo da por buena la firma, por falsificado un número cambiado, por buena otra vez la misma en una línea y «no es un evento» al romper el JSON. Solo se mueve el dibujo que está en pantalla. En un teléfono, en español, nada se sale por los lados. Y con «reducir movimiento», cada dibujo queda quieto en su fotograma. Esto último fallaba en WebKit, que pone a cero el reloj de los dibujos justo después de cargar la página: `assets/motion.mjs` los vuelve a fijar entonces.
 
-## Antes de publicarla
+## Dónde está publicada
 
-- **El correo de contacto.** Los enlaces de «Write to us», «Escríbenos» y «Contacto» van a `contact@example.invalid`, que no existe, hasta que el dueño diga qué dirección poner.
-- **El dominio.** Con él se añaden la dirección canónica de cada página y sus `hreflang`, que tienen que ser absolutas.
-- **Una imagen para compartir el enlace** (`og:image`): no hay ninguna.
-- **Dónde se aloja.** Nada se publica sin que el dueño lo confirme.
+En **https://uselucid.org** (y `www.uselucid.org`), con DigitalOcean App Platform como sitio estático: sirve esta carpeta tal cual, sin paso de construcción, y la vuelve a publicar en cada push a `main`. Lo que DigitalOcean sabe de ella está en `.do/app.yaml`, en la raíz del repositorio, que no lleva ningún secreto. Se creó una vez con `doctl apps create --spec .do/app.yaml`, y un cambio en ese fichero se aplica con `doctl apps update ID --spec .do/app.yaml`. El DNS del dominio está en Cloudflare, sin su proxy, para que DigitalOcean pueda sacar el certificado.
+
+Cada página dice su dirección canónica y la de la otra lengua (`hreflang`), y los enlaces de contacto van a `info@albertosanmartinmartinez.es`.
+
+Falta una imagen para compartir el enlace (`og:image`).
 
 ## Lo que no hace
 

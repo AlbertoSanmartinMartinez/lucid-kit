@@ -1333,7 +1333,7 @@ Pedida por el dueño antes de seguir con lo técnico. Hecha con la skill `fronte
 | Dónde y cómo | En este repositorio, `site/`, HTML estático sin dependencias |
 | Dirección visual | La propuesta, sin cambios: papel y tinta violeta, sello violeta para lo verificado y rojo para lo roto, Atkinson Hyperlegible, la demo en la cabecera y las cinco letras bajando por la página |
 | Enlaces a GitHub | El repositorio es privado; el dueño lo hará público antes de publicar la página |
-| Contacto de empresas | Un correo. **Falta saber cuál**: hasta entonces los enlaces van a `contact@example.invalid` |
+| Contacto de empresas | Un correo: `info@albertosanmartinmartinez.es`, decidido el 23 de noviembre (sección 38) |
 
 **Qué se hizo.**
 - **Las dos páginas,** `site/index.html` y `site/es/index.html`: cabecera con la demo, las cinco propiedades, cómo probarlo, dónde usarlo y en qué punto está.

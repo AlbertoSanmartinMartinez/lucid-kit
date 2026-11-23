@@ -1,0 +1,18 @@
+# The landing page of LUCID on DigitalOcean App Platform: the site/ folder of this repository, served as it
+# is, as a static site, and published again on every push to main. It holds no secret.
+#   doctl apps create --spec .do/app.yaml          once
+#   doctl apps update APP_ID --spec .do/app.yaml   after a change here
+name: lucid-landing
+static_sites:
+  - name: landing
+    github:
+      repo: AlbertoSanmartinMartinez/lucid-kit
+      branch: main
+      deploy_on_push: true
+    source_dir: site
+    index_document: index.html
+domains:
+  - domain: uselucid.org
+    type: PRIMARY
+  - domain: www.uselucid.org
+    type: ALIAS

@@ -201,3 +201,17 @@ test('the drawings on both pages are the ones the drawing tool makes', () => {
   const inks = { L: 'log', U: 'sign', C: 'crypt', I: 'bridge', D: 'find' };
   for (const [letter, tone] of Object.entries(TONES)) assert.match(css, new RegExp(`--${inks[letter]}: ${tone};`), letter);
 });
+
+test('each page says its address and the address of the other language', () => {
+  const head = (page) => read(page).slice(0, read(page).indexOf('</head>'));
+  const alternates = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)" \/>/g)].map(([, lang, href]) => `${lang} ${href}`);
+  for (const [lang, page] of Object.entries(PAGES)) {
+    const html = head(page);
+    const address = lang === 'en' ? 'https://uselucid.org/' : `https://uselucid.org/${lang}/`;
+    assert.match(html, new RegExp(`<link rel="canonical" href="${address}" />`), lang);
+    assert.match(html, new RegExp(`<meta property="og:url" content="${address}" />`), lang);
+    assert.deepEqual(alternates(html), ['en https://uselucid.org/', 'es https://uselucid.org/es/', 'x-default https://uselucid.org/'], lang);
+  }
+  // The contact address is a real one now, the same on both pages.
+  for (const page of Object.values(PAGES)) assert.deepEqual([...read(page).matchAll(/mailto:([^"]+)"/g)].map(([, address]) => address), ['info@albertosanmartinmartinez.es', 'info@albertosanmartinmartinez.es']);
+});

@@ -8,7 +8,7 @@ Hub abierto donde agentes de IA se registran con identidad criptográfica, descu
 
 ```bash
 npm install                   # ts-mls y @noble/hashes
-npm test                      # 289 tests; deben pasar todos antes y después de cada cambio
+npm test                      # 290 tests; deben pasar todos antes y después de cada cambio
 npm run demo                  # flujo completo con un hub en memoria
 node bin/agenthub.mjs hub     # hub local en 127.0.0.1:8787, estado en ./data
 node bin/agenthub.mjs --help  # CLI de agente y de controlador

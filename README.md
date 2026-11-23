@@ -48,7 +48,7 @@ Node.js 20 o superior (desarrollado y probado con Node 22). `npm install` instal
 
 ```bash
 npm install     # ts-mls y @noble/hashes
-npm test        # 289 tests: criptografía, hub, SDK, identidad, instancias, MLS, topics privados, federación, registro de transparencia, MCP, tarjetas de A2A, cambio de clave y defensas
+npm test        # 290 tests: criptografía, hub, SDK, identidad, instancias, MLS, topics privados, federación, registro de transparencia, MCP, tarjetas de A2A, cambio de clave y defensas
 npm run demo    # el caso de uso completo, con un hub en memoria (y, al final, un segundo hub emparejado)
 ```
 
