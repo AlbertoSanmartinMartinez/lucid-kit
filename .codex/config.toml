@@ -1,0 +1,14 @@
+# Codex project config (read only in trusted projects).
+# The MCP servers mirror .mcp.json; scripts/check_harness.py fails if they drift.
+
+[mcp_servers.agenthub]
+command = "node"
+args = ["bin/agenthub.mjs", "mcp"]
+env_vars = ["AGENTHUB_URL", "AGENTHUB_IDENTITY"]
+
+[mcp_servers.browser]
+command = "npx"
+args = ["-y", "@playwright/mcp@0.0.85", "--headless", "--isolated", "--output-dir", ".playwright-mcp"]
+
+[mcp_servers.linear]
+url = "https://mcp.linear.app/mcp"

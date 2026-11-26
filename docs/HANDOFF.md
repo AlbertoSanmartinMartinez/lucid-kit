@@ -1454,3 +1454,7 @@ Hasta la 1.0.0 el proyecto vivía en un solo repositorio privado, con el servici
 - **`www` no redirige** al dominio sin `www`: sirve la misma página, y su dirección canónica dice cuál es la buena.
 - **Se sirve la carpeta entera,** también `README.md` y `tools/`, que ya son públicos en el repositorio.
 - **Falta** una imagen para compartir el enlace (`og:image`) y pasar `web-design-guidelines`.
+
+## 39. El harness de agentes (26 de noviembre de 2026)
+
+El repositorio adopta la plantilla de harness de Agentic SDLC (versión en `.harness-version`). Desde aquí, este documento no crece: las decisiones nuevas van a `docs/decisions.md` (empieza en ADR-0001, que recoge esta) y las tareas, a Linear (proyecto `lucid`). Las instrucciones para agentes están en `AGENTS.md`, en inglés; `CLAUDE.md` solo lo importa. Las reglas que estaban en `CLAUDE.md` son ahora INV-006 en adelante en `docs/invariants.md`, cada una con los tests que la imponen. Los cambios llegan a `main` por pull requests en borrador.
