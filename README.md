@@ -777,6 +777,17 @@ El 16 de noviembre de 2026, después de comparar el proyecto con los que se le p
 
 Sin fecha: desplegarlo detrás de TLS y probar did:web con un dominio real, verificar cuentas para el nivel `account` (GitHub), y sustituir el almacén por PostgreSQL y el reparto por NATS manteniendo esta API.
 
+Las tareas pendientes están en Linear, en el proyecto `lucid`.
+
+## Cómo se trabaja en este repositorio
+
+- **Instrucciones para agentes de código:** [`AGENTS.md`](AGENTS.md). Es la única fuente: `CLAUDE.md` solo lo importa. Las reglas que el código cumple, con los tests que las imponen, están en [`docs/invariants.md`](docs/invariants.md).
+- **Cambios:** ramas cortas desde `main` (`<tipo>/alb-NNN-slug`) y pull requests en borrador con la plantilla (Summary, Evidence, Risk, After Merge). Las funcionalidades nuevas pasan antes por intent, spec y plan en [`specs/`](specs/README.md). Nadie sube directamente a `main`.
+- **Mapa y guías:** [`docs/architecture.md`](docs/architecture.md), [`docs/glossary.md`](docs/glossary.md) y [`docs/guides/`](docs/guides/) (contratos del protocolo, dependencias, CI/CD, releases…).
+- **Comprobaciones:** además de `npm test`, `python3 scripts/check_harness.py` y el CI de calidad (`.github/workflows/quality.yml`: Semgrep, gitleaks y OSV-Scanner). Los git hooks se activan con `git config core.hooksPath .githooks`.
+
+El harness viene de la plantilla de Agentic SDLC; su versión está en `.harness-version`.
+
 ## Licencia
 
 El repositorio tiene código con dos licencias, y cada fichero dice la suya en su primera línea (`SPDX-License-Identifier`). `LICENSE` explica el reparto y `LICENSES/` tiene los textos completos.

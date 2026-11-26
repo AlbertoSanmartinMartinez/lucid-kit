@@ -1,0 +1,11 @@
+# Harness changes need a person's review (INV-005).
+/AGENTS.md            @AlbertoSanmartinMartinez
+/CLAUDE.md            @AlbertoSanmartinMartinez
+/.agents/             @AlbertoSanmartinMartinez
+/.claude/             @AlbertoSanmartinMartinez
+/.cursor/             @AlbertoSanmartinMartinez
+/.codex/              @AlbertoSanmartinMartinez
+/.githooks/           @AlbertoSanmartinMartinez
+/.github/             @AlbertoSanmartinMartinez
+/docs/invariants.md   @AlbertoSanmartinMartinez
+/scripts/check_harness.py @AlbertoSanmartinMartinez
